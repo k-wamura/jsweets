@@ -71,6 +71,11 @@ public class Product {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + ", stock="
+				+ stock + ", imagePath=" + imagePath + "]";
+	}
 	
 }

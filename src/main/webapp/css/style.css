@@ -1,4 +1,4 @@
-/* ===== 商品カード一覧 ===== */
+ 商品一覧（カード形式） 
 .product-grid {
     display: flex;
     flex-wrap: wrap;
@@ -28,20 +28,36 @@
     border-radius: 8px;
 }
 
-.product-name {
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+ 商品詳細ページ 
+.product-detail {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.product-price {
+.product-detail img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-detail button {
+    margin-top: 20px;
+    padding: 10px 20px;
     font-size: 16px;
-    color: #4CAF50;
-    margin: 5px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.product-stock {
-    font-size: 14px;
-    color: #999;
+.product-detail button:hover {
+    background-color: #388E3C;
 }
