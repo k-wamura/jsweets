@@ -19,7 +19,7 @@
 		<form action="addcart" method="post">
 			<input type="hidden" name="productId" value="${product.id}">
 			<label>
-				数量: <input type="number" name="quantity" value="1"min="1" max="${product.stock}">
+				数量: <input type="number" name="quantity" value="1" min="1" max="${product.stock}">
 			</label>
 			<button type="submit">カートに追加</button>
 		</form>
