@@ -45,6 +45,13 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("loginUser", loginUser);
 		
+		//戻り先URLがあればそこにリダイレクト
+		String afterUrl = (String)session.getAttribute("afterUrl");
+		if(afterUrl != null) {
+			response.sendRedirect(afterUrl);
+			return;
+		}
+		
 		response.sendRedirect("productList");
 	}
 

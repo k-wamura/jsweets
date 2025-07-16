@@ -13,7 +13,7 @@
 		<p>カートは空です</p>
 	</c:if>
 	<c:if test="${ not empty cart }">
-	<form action="buy" method="post">
+	<form action="buy" method="get">
 	  	<!-- totalの初期化 -->
 		<c:set var="total" value="0" scope="page" />
 		<table border="1">

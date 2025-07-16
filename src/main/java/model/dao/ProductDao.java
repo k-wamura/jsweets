@@ -94,18 +94,14 @@ public class ProductDao {
 	 * @param newStock 新しい在庫数
 	 */
 	private final String SQL_UPDATE_STOCK = "UPDATE product SET stock = ? WHERE id = ?";
-	public void updateStock(int id, int newStock) {
+	public void updateStock(Connection conn, int id, int newStock) throws SQLException {
 		
-		try(Connection conn = DBUtil.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(SQL_UPDATE_STOCK)){
+		try(PreparedStatement pstmt = conn.prepareStatement(SQL_UPDATE_STOCK)){
 			
 			pstmt.setInt(1, newStock);
 			pstmt.setInt(2, id);
-			
 			pstmt.executeUpdate();
 			
-		}catch(SQLException e) {
-			e.printStackTrace();
 		}
 	}
 	
