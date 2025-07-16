@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,6 +23,8 @@ import model.entity.Product;
 @WebServlet("/addcart")
 public class AddCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static final Logger logger = LoggerFactory.getLogger(AddCartServlet.class);
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -52,7 +57,7 @@ public class AddCartServlet extends HttpServlet {
 		//カートがなにもなければ新しく生成
 		if(cart == null) {
 			cart = new LinkedHashMap<Integer, CartItem>();
-			System.out.println("creat cart");
+			logger.debug("カート作成");
 		}
 		
 		//カートに同商品があればその個数にプラス
@@ -63,18 +68,19 @@ public class AddCartServlet extends HttpServlet {
 			//在庫を超える場合は最大値を設定
 			if(newQuantity > product.getStock()) {
 				newQuantity = product.getStock();
-				System.out.println("カート追加：最大値設定");
+				logger.debug("カート追加：最大値（{}）", newQuantity);
 			}
 			
 			//デバッグ用
-			System.out.println("カートに追加：" + product.toString() + "数量" +newQuantity);
+			logger.debug("カートに追加：{}", product);
+			logger.debug("数量：{}", newQuantity);
 			
 			item.setQuantity(newQuantity);
 			
 		}else {
 			//カートに新規追加
 			cart.put(productId, new CartItem(product, quantity));
-			System.out.println("カート追加：新規追加");
+			logger.debug("カートに新規追加");
 		}
 		
 		//再設定を明示的に記述
