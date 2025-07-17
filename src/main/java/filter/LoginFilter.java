@@ -27,7 +27,7 @@ public class LoginFilter extends HttpFilter {
 		
 		HttpSession session = request.getSession(false);
 		boolean isLogin = session != null 
-						&& session.getAttribute("loginUser") != null;
+						&& session.getAttribute("loginUser") != null;//TODO contextPath利用検討
 		
 		if(isLogin) {
 			//通す

@@ -9,9 +9,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.dao.ProductDao;
 import model.entity.CartItem;
-import model.entity.Product;
+import model.entity.User;
+import model.service.OrderService;
 
 
 @WebServlet("/buy")
@@ -35,29 +35,28 @@ public class BuyServlet extends HttpServlet {
 			return;
 		}
 		
-		ProductDao productDao = new ProductDao();
-		
-		//在庫チェック
-		for(CartItem item : cart.values()) {
-			int id = item.getProduct().getId();
-			Product product = productDao.findById(id);
-			
-			//注文数が不正であればエラー表示
-			int newStock = product.getStock() - item.getQuantity();
-			if(newStock < 0) {
-				request.setAttribute("errro", product.getName() + "の在庫が不足しています");
-				
-				request
-				.getRequestDispatcher("cart.jsp")
-				.forward(request, response);
-			}
-			
-			//在庫更新
-			productDao.updateStock(product.getId(), newStock);
-		}
-		
 		//TODO 購入履歴登録
-		
+		try {
+			User loginUser = (User)session.getAttribute("loginUser");
+			new OrderService().purchase(loginUser, cart);
+			
+		}catch(IllegalStateException e) {
+			request.setAttribute("errorMsg", e.getMessage());
+			
+			request
+			.getRequestDispatcher("WEB-INF/jsp/buyComplete.jsp")
+			.forward(request, response);
+			return;
+			
+		}catch(Exception e) {
+			request.setAttribute("errorMsg", "購入処理でエラーが発生しました。");
+			
+			request
+			.getRequestDispatcher("WEB-INF/jsp/buyComplete.jsp")
+			.forward(request, response);
+			return;
+			
+		}
 		
 		//カートを空にする
 		session.removeAttribute("cart");

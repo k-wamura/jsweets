@@ -22,7 +22,7 @@ public class UserDao {
 	 * @param pass
 	 * @return ユーザ情報(情報がない場合null)
 	 */
-	private final String SQL_FIND_LOGIN = "SELECT * FROM user WHERE email = ? AND password = ?";
+	private final String SQL_FIND_LOGIN = "SELECT * FROM users WHERE email = ? AND password = ?";
 	public User findByEmailAndPass(String email, String pass) {
 		
 		try(Connection conn = DBUtil.getConnection();
