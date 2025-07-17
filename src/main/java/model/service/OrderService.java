@@ -68,7 +68,7 @@ public class OrderService {
 			
 			conn.commit();
 			
-			logger.info("購入処理開始：userId={}, 商品数={}", user.getId(), cart.size());
+			logger.info("購入処理終了：userId={}, 商品数={}", user.getId(), cart.size());
 
 			
 		}catch (Exception e) {

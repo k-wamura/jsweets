@@ -3,6 +3,9 @@ package servlet;
 import java.io.IOException;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,6 +20,8 @@ import model.service.OrderService;
 @WebServlet("/buy")
 public class BuyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static Logger logger = LoggerFactory.getLogger(BuyServlet.class);
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request
@@ -35,7 +40,6 @@ public class BuyServlet extends HttpServlet {
 			return;
 		}
 		
-		//TODO 購入履歴登録
 		try {
 			User loginUser = (User)session.getAttribute("loginUser");
 			new OrderService().purchase(loginUser, cart);
@@ -56,6 +60,11 @@ public class BuyServlet extends HttpServlet {
 			.forward(request, response);
 			return;
 			
+		}
+		
+		request.setAttribute("cart", cart);
+		for(CartItem item : cart.values()) {
+			logger.debug("購入完了画面用カート情報；{}", item);			
 		}
 		
 		//カートを空にする
