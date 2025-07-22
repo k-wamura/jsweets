@@ -24,6 +24,7 @@ public class BuyServlet extends HttpServlet {
 	private static Logger logger = LoggerFactory.getLogger(BuyServlet.class);
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request
 		.getRequestDispatcher("WEB-INF/jsp/buyConfirm.jsp")
 		.forward(request, response);
@@ -61,14 +62,16 @@ public class BuyServlet extends HttpServlet {
 			return;
 			
 		}
-		
+		request.setAttribute("totalPrice", session.getAttribute("totalPrice"));
 		request.setAttribute("cart", cart);
+		
 		for(CartItem item : cart.values()) {
 			logger.debug("購入完了画面用カート情報；{}", item);			
 		}
 		
 		//カートを空にする
 		session.removeAttribute("cart");
+		session.removeAttribute("totalPrice");
 		
 		//購入完了へ
 		request
