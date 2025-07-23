@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpSession;
 import model.dao.ProductDao;
 import model.entity.CartItem;
 import model.entity.Product;
+import model.service.OrderService;
 
 /**
  * Servlet implementation class AddCartServlet
@@ -38,7 +39,6 @@ public class AddCartServlet extends HttpServlet {
 		
 		//現在の在庫数を取得
 		Product product = new ProductDao().findById(productId);
-		int stock = product.getStock();
 		
 		//在庫チェック
 		if(product.getStock() < quantity) {
@@ -85,6 +85,9 @@ public class AddCartServlet extends HttpServlet {
 		
 		//再設定を明示的に記述
 		session.setAttribute("cart", cart);
+		//合計金額を設定
+		int totalPrice = new OrderService().calcTotalPrice(cart.values());
+		session.setAttribute("totalPrice", totalPrice);
 		
 		response.sendRedirect("cart.jsp");
 	}

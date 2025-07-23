@@ -84,7 +84,7 @@ public class OrderService {
 		}
 	}
 	
-	private int calcTotalPrice(Collection<CartItem> cart) {
+	public int calcTotalPrice(Collection<CartItem> cart) {
 		int total = 0;
 		for(CartItem item : cart) {
 			total += item.getProduct().getPrice() * item.getQuantity();

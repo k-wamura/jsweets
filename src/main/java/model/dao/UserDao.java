@@ -45,7 +45,8 @@ public class UserDao {
 							rs.getString("o_address"),
 							rs.getString("tel"),
 							rs.getString("email"),
-							rs.getTimestamp("created_at").toLocalDateTime()
+							rs.getTimestamp("created_at").toLocalDateTime(),
+							rs.getInt("role_id")
 							);
 				}
 			}

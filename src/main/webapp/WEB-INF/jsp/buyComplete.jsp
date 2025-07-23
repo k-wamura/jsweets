@@ -22,11 +22,11 @@
 				<td>${ item.product.name }</td>
 				<td>${ item.product.price }</td>
 				<td>${ item.quantity }</td>
-				<td>${ subtotal }</td>
+				<td>${ item.product.price * item.quantity }</td>
 			</tr>
 			</c:forEach>
 		</table>
-		<p>合計金額：<c:out value="${ total }"></c:out>円</p>
+		<p>合計金額：<c:out value="${ totalPrice }"></c:out>円</p>
 	<a href="productList">商品一覧へ戻る</a>
 </body>
 </html>
