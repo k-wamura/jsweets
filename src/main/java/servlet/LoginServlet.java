@@ -2,6 +2,9 @@ package servlet;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,10 +18,12 @@ import model.entity.User;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static Logger logger = LoggerFactory.getLogger(LoginServlet.class);
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request
-		.getRequestDispatcher("WEB-INF/jsp/login.jsp")
+		.getRequestDispatcher("/WEB-INF/jsp/login.jsp")
 		.forward(request, response);
 	}
 
@@ -28,6 +33,8 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String pass = request.getParameter("password");
 		
+		logger.debug("ログイン情報：Email({}), Pass({})", email, pass);
+		
 		//ログイン処理
 		User loginUser = new UserDao().findByEmailAndPass(email, pass);
 		
@@ -35,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 		if(loginUser == null) {
 			request.setAttribute("errorMsg", "ログイン情報が正しくありません");
 			request
-			.getRequestDispatcher("WEB-INF/jsp/login.jsp")
+			.getRequestDispatcher("index.jsp")
 			.forward(request, response);
 			return;
 		}

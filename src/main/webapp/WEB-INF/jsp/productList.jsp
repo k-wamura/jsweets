@@ -6,21 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>商品一覧</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/products.css">
 </head>
 <body>
-<h1>商品一覧</h1>
-<div class="product-group">
-	<c:forEach var="product" items="${ products }">
-		<div class="product-card">
+	<ul class="menu_list">
+		<c:forEach var="product" items="${ products }">
 			<a href="productDetail?id=${ product.id }">
-				<img class="product-image" src="${ product.imagePath }" alt="${ product.name }">
+				<li>
+					<figure><img class="product-img" src="${ product.imagePath }" alt="" width="400" height="300"></figure>
+					<dl>
+						<dt>${ product.name }</dt>
+						<dd class="summary">${ product.description }</dd>
+						<dd class="price">¥${ product.price }</dd>
+					</dl>
+				</li>
 			</a>
-			<h2 class="product-name">${ product.name }</h2>
-			<p class="product-price">価格：${ product.price }円</p>
-			<p class="product-stock">在庫：${ product.stock }個</p>
-		</div>
-	</c:forEach>
-</div>
+		</c:forEach>
+	</ul>
 </body>
 </html>

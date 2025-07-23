@@ -13,7 +13,8 @@ public class DBUtil {
 	
 	private static final String URL = "jdbc:mariadb://localhost/jsweets";
 	private static final String USER = "root";
-	private static final String PASS = "insource.2015it";
+//	private static final String PASS = "insource.2015it";
+	private static final String PASS = "";
 	
 	static {
 		try {
