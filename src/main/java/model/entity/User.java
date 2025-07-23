@@ -16,9 +16,10 @@ public class User {
     private String tel;
     private String email;
     private LocalDateTime createdAt;
+    private int role;
     
 	public User(int id, String lName, String fName, String lNameKana, String fNameKana, String password,
-			String prefecture, String city, String oAddress, String tel, String email, LocalDateTime createdAt) {
+			String prefecture, String city, String oAddress, String tel, String email, LocalDateTime createdAt, int role) {
 		super();
 		this.id = id;
 		this.lName = lName;
@@ -32,6 +33,15 @@ public class User {
 		this.tel = tel;
 		this.email = email;
 		this.createdAt = createdAt;
+		this.role = role;
+	}
+
+	public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
 	}
 
 	public int getId() {

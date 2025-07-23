@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet {
 		
 		//戻り先URLがあればそこにリダイレクト
 		String afterUrl = (String)session.getAttribute("afterUrl");
+		session.removeAttribute("afterUrl");
 		if(afterUrl != null) {
 			response.sendRedirect(afterUrl);
 			return;
