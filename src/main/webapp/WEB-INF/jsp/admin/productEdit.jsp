@@ -15,6 +15,7 @@
         <form action="productEdit" method="post">
             <input type="hidden" name="id" value="${product.id}" />
 
+			<img alt="" src="${pageContext.request.contextPath}/${ product.imagePath }">
             <div class="form-group">
                 <label>商品名:</label>
                 <input type="text" name="name" value="${product.name}" required />
