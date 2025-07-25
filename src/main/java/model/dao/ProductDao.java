@@ -106,5 +106,32 @@ public class ProductDao {
 	}
 	
 	
+	/**
+	 * 渡された情報を使用し、該当する情報を更新します
+	 * 
+	 * @param product 更新商品情報
+	 */
+	private final String SQL_UPDATE = "UPDATE product "
+			+ "SET name = ?, description = ?, price = ?, stock = ?, image_path = ?"
+			+ "WHERE id = ?";
+	public void update(Product product) {
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(SQL_UPDATE)){
+			
+			pstmt.setString(1, product.getName());
+			pstmt.setString(2, product.getDescription());
+			pstmt.setInt(3, product.getPrice());
+			pstmt.setInt(4, product.getStock());
+			pstmt.setString(5, product.getImagePath());
+			pstmt.setInt(6, product.getId());
+			pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 }
