@@ -6,15 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>商品編集</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/admin.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin.css">
 </head>
 <body>
 	<div class="admin-container">
 		<h1>商品編集</h1>
 
 		<form action="productEdit" method="post" enctype="multipart/form-data">
-			<input type="text" name="productId" value="${product.id}" /> 
+			<input type="hidden" name="productId" value="${product.id}" /> 
 			
 			<div class="form-group">
 				<label>商品名:</label> <input type="text" name="name"
@@ -22,8 +21,8 @@
 			</div>
 
 			<div class="form-group">
-				<label>画像（アップロード）:</label> <input type="file" name="image"
-					accept="image/*" />
+				<label>画像（アップロード）:</label>
+				<input type="file" name="image" accept="image/*" />
 			</div>
 
 			<div class="form-group">

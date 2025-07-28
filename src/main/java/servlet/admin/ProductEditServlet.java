@@ -2,7 +2,7 @@ package servlet.admin;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,15 +45,13 @@ public class ProductEditServlet extends HttpServlet {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 request.setCharacterEncoding("UTF-8");
 		
 		String ID = request.getParameter("productId");
 		logger.debug("id:{}", ID);
-		int id = Integer.parseInt(request.getParameter("productId"));
+		int productId = Integer.parseInt(request.getParameter("productId"));
 		
         String name = request.getParameter("name");
         int price = Integer.parseInt(request.getParameter("price"));
@@ -62,39 +60,32 @@ request.setCharacterEncoding("UTF-8");
         
         //画像ファイル取得
         Part imagePart = request.getPart("image");
-        logger.debug("imagePart:{}", imagePart);
-        
-        String newFileName = Path.of(imagePart.getSubmittedFileName()).getFileName().toString();
-        logger.debug("newFileName:{}", newFileName);
+        String submittedFileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
         String saveFileName = null;
         
-        if(newFileName != null && !newFileName.isEmpty()) {
-        	saveFileName = System.currentTimeMillis() + "_" + newFileName;
-        	logger.debug("saveFileName:{}", saveFileName);
-        	
-        	//保存先のパス
-        	String IMAGE_DIR = "/images";
-//        	String savePath = getServletContext().getRealPath(IMAGE_DIR);
-        	String savePath = new File("webapp/images").getAbsolutePath();
-        	logger.debug("保存ファイル名: {}", saveFileName);
-        	logger.debug("保存先パス：{}", savePath);
-        	
-        	//ファイルの保存
-        	imagePart.write(savePath + File.separator + saveFileName);
+        if(submittedFileName != null && !submittedFileName.isEmpty()) {
+        	saveFileName = System.currentTimeMillis() + "_" + submittedFileName;
+        	//画像アップロード
+        	String path = "C:\\pleiades\\2023-12\\workspace\\Jsweets\\src\\main\\webapp\\images";//開発用パス
+        	imagePart.write(path + File.separator + saveFileName);
+        	logger.debug("画像ファイル保存：{}", path + File.separator + saveFileName);
         }
+        //画像パスの取得
+        String imagePath = (saveFileName != null) ? "images/" + saveFileName : null;
+        logger.debug("保存ファイル名：{}", saveFileName);
         
-        //商品情報の更新
+        
+        //データベース更新
         ProductDao productDao = new ProductDao();
-        Product product = productDao.findById(id);
+        Product product = productDao.findById(productId);
+        
         product.setName(name);
         product.setPrice(price);
         product.setStock(stock);
         product.setDescription(description);
-        
         if(saveFileName != null) {
-        	product.setImagePath("images/" + saveFileName);
+        	product.setImagePath(imagePath);        	
         }
-       
         productDao.update(product);
         
         response.sendRedirect("productList");

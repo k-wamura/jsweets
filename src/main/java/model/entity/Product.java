@@ -24,6 +24,15 @@ public class Product {
 		this.imagePath = imagePath;
 	}
 
+	public Product(String name, String description, int price, int stock, String imagePath) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.stock = stock;
+		this.imagePath = imagePath;
+	}
+
 	public int getId() {
 		return id;
 	}

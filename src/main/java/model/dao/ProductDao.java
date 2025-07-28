@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import model.entity.Product;
 import util.DBUtil;
 
@@ -16,6 +19,8 @@ import util.DBUtil;
  * @author wamura
  */
 public class ProductDao {
+	
+	private static Logger logger = LoggerFactory.getLogger(ProductDao.class);
 
 	/**
 	 * 全ての商品情報を取得
@@ -130,6 +135,35 @@ public class ProductDao {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * 渡された情報を使用し、商品情報を追加します。
+	 * 
+	 * @param product 新しい商品情報
+	 */
+	private final String SQL_ADD = "INSERT INTO product(name, price, stock, description, image_path)"
+									+ "VALUES (?, ?, ?, ?, ?)";
+	public void addProduct(Product product) throws Exception {
+		try (Connection conn = DBUtil.getConnection();
+		         PreparedStatement pstmt = conn.prepareStatement(SQL_ADD)) {
+
+		        pstmt.setString(1, product.getName());
+		        pstmt.setInt(2, product.getPrice());
+		        pstmt.setInt(3, product.getStock());
+		        pstmt.setString(4, product.getDescription());
+		        pstmt.setString(5, product.getImagePath());
+
+		        pstmt.executeUpdate();
+		        //成功ログ
+		        logger.info("商品名 {} の追加に成功", product.getName());
+
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		        //エラーログ
+		        logger.error("商品追加エラー", e);
+		        throw new Exception();
+		    }
 	}
 	
 	

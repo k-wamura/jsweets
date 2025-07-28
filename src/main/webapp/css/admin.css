@@ -91,3 +91,73 @@ h1 {
 .btn-danger:hover {
     background-color: #c9302c;
 }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.form-buttons button {
+    background-color: #0073aa;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-buttons button:hover {
+    background-color: #005f8d;
+}
+
+.form-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-buttons a:hover {
+    background-color: #5a6268;
+}
+
+.form-group img {
+    display: block;
+    margin-top: 10px;
+    max-width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

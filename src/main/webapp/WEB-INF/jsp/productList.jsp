@@ -13,7 +13,7 @@
 		<c:forEach var="product" items="${ products }">
 			<a href="productDetail?id=${ product.id }">
 				<li>
-					<figure><img class="product-img" src="${ product.imagePath }" alt="" width="400" height="300"></figure>
+					<figure><img class="product-img" src="${ product.imagePath }" alt="" ></figure>
 					<dl>
 						<dt>${ product.name }</dt>
 						<dd class="summary">${ product.description }</dd>
