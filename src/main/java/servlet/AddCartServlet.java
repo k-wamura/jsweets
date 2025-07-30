@@ -21,14 +21,16 @@ import model.service.OrderService;
 /**
  * Servlet implementation class AddCartServlet
  */
-@WebServlet("/addcart")
+@WebServlet("/cart")
 public class AddCartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AddCartServlet.class);
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		request
+		.getRequestDispatcher("WEB-INF/jsp/cart.jsp")
+		.forward(request, response);
 	}
 
 
@@ -89,7 +91,7 @@ public class AddCartServlet extends HttpServlet {
 		int totalPrice = new OrderService().calcTotalPrice(cart.values());
 		session.setAttribute("totalPrice", totalPrice);
 		
-		response.sendRedirect("cart.jsp");
+		response.sendRedirect("cart");
 	}
 
 }

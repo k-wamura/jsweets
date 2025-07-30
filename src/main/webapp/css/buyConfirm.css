@@ -1,0 +1,137 @@
+body {
+    background-image: url("../images/header.jpg");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    padding-top: 100px; /* ヘッダー対策 */
+}
+
+/* メイン枠 */
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* 見出し */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 0;
+}
+
+/* ステップバー */
+/*.step-bar {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    max-width: 400px;*/
+/*    margin: 0 auto 30px auto;*/
+/*}*/
+
+/*.step {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    position: relative;*/
+/*    flex: 1;*/
+/*}*/
+
+/*.step:not(:last-child)::after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 16px;*/
+/*    left: 30px;*/
+/*    width: 120px;*/
+/*    height: 2px;*/
+/*    background-color: #ccc;*/
+/*    z-index: -1;*/
+/*}*/
+
+/*.circle {*/
+/*    width: 32px;*/
+/*    height: 32px;*/
+/*    background-color: #888;*/
+/*    color: white;*/
+/*    font-weight: bold;*/
+/*    border-radius: 50%;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.step.current .circle {*/
+/*    background-color: #38b2ac;*/
+/*}*/
+
+/*.step .label {*/
+/*    margin-top: 5px;*/
+/*    font-size: 0.9em;*/
+/*    color: #333;*/
+/*}*/
+
+/*.step.current .label {*/
+/*    color: #38b2ac;*/
+/*}*/
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* 合計 */
+.total {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* 戻る・購入ボタン */
+.actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #666;
+    margin-right: 20px;
+}
+
+.actions button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+    background-color: darkorange;
+}

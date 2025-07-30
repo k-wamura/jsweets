@@ -1,84 +1,80 @@
-@charset "utf-8";
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    padding-top: 100px;
+    font-family: sans-serif;
+}
+
+body.with-header {
+    padding-top: 100px; /* ← headerの高さに合わせて調整 */
+}
 
 .menu_list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 30px;
+    margin: 0;
 }
-.menu_list figure {
-	margin: 0;
-}
-.menu_list img {
-	max-width: 100%;
-	height: auto;
-	vertical-align: middle;
-}
-.menu_list dl,
-.menu_list dd {
-	margin: 0;
-}
-.menu_list dl {
-	margin-top: .5em;
-	line-height: 1.5;
-	font-family: "Noto Sans JP", sans-serif;
-	text-align: right;
-}
-.menu_list dt,
-.menu_list .summary {
-	text-align: left;
-}
-.menu_list dt {
-	font-size: .875em;
-	font-weight: 700;
-}
-.menu_list dd {
-	margin-top: .3em;
-	font-size: .75em;
-}
-.menu_list .price {
-	display: inline-block;
-	padding: .2em .8em;
-	background: #eee;
-}
-/* よこ並びのスタイル */
-.menu_list {
-	max-width: 1024px;
-	margin: 0 auto;
-	letter-spacing: -.5em;
-}
+
 .menu_list li {
-	display: inline-block;
-	width: 33.333%;
-	padding: 16px 32px;
-	box-sizing: border-box;
-	letter-spacing: 0;
-	vertical-align: top;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
 }
 
-@media screen and (max-width: 767px) {
-	.menu_list li { 
-		width: 50%;
-	}
-}
-@media screen and (max-width: 428px) {
-	.menu_list li {
-		width: auto;
-	}
+.menu_list li:hover {
+    transform: translateY(-5px);
 }
 
-@media screen and (min-width: 429px) {
-	.menu_list {
-		letter-spacing: -.5em;
-	}
-	.menu_list li {
-		display: inline-block;
-		width: 50%;
-		letter-spacing: 0;
-		vertical-align: top;
-	}
+.menu_list a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
 }
-@media screen and (min-width: 768px) {
-	.menu_list li { 
-		width: 33.333%;
-	}
+
+.product-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
 }
+
+dl {
+    padding: 10px;
+}
+
+dt {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.summary {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 8px;
+    height: 3.6em; /* 2行でカット */
+    overflow: hidden;
+    line-height: 1.8em;
+}
+
+.price {
+    font-size: 15px;
+    color: #000;
+    font-weight: bold;
+    text-align: right;
+}
+
+.cart-container,
+.menu-container,
+.menu_list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+

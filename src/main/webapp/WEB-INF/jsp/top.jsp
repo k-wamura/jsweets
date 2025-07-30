@@ -8,19 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/top.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-    <header>
-        <h2 class="logo">Logo</h2>
-        <nav class="navigation">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="productList">Products</a>
-            <a href="#">Contact</a>
-            <a href="cart.jsp"><ion-icon name="cart-outline"></ion-icon></a>
-            <button class="btnLogin-popup">Login</button>
-        </nav>
-    </header>
+	<jsp:include page="header.jsp"></jsp:include>
 
     <div class="wrapper">
         <span class="icon-close">
@@ -87,7 +78,5 @@
 
 
     <script src="js/script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
