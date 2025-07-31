@@ -63,7 +63,7 @@
 					</form>
 					<div class="item-info">
 						<div class="item-name">${ item.product.name }</div>
-						<div class="item-price">${ item.product.price }円</div>
+						<div class="item-price">¥${ item.product.price }</div>
 						<div class="item-qty">
 							<form action="updateCart" method="post">
 								<input type="hidden" name="id" value="${ item.product.id }" />
@@ -85,7 +85,7 @@
 
 			<div class="summary">
 				<div class="summary-row total">
-					<span>注文合計</span><span>${ total + shipping } 円</span>
+					<span>注文合計</span><span>¥${ total + shipping }</span>
 				</div>
 			</div>
 

@@ -12,7 +12,17 @@ body {
     font-family: sans-serif;
     background: url('../images/header.jpg') no-repeat center center fixed;
     background-size: cover;
+    font-family: 'Shippori Mincho B1', serif;
 }
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, dt, dd, input, button, select, textarea {
+  font-family: 'Shippori Mincho B1', serif !important;
+}
+
 
 body.with-header {
     padding-top: 100px;

@@ -1,8 +1,29 @@
-/*body{*/
-/*	background: #f5f1eb;*/
+body{
+	background: #f5f1eb;
+/*	font-family: 'Shippori Mincho B1', serif;*/
+}
+
+/*button, input, select, textarea {*/
+/*  font-family: inherit;*/
 /*}*/
 
+/*html, body, h1, h2, h3, h4, h5, h6, p, a, span, div, li, dt, dd, input, button, select, textarea {*/
+/*  font-family: 'Shippori Mincho B1', serif !important;*/
+/*}*/
+
+
+h1 {
+	border-bottom: 1px solid rgb(192, 192, 192);
+	max-width: 600px;
+	padding-bottom: 20px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+
 .product-grid {
+	max-width: 1000px;
+	margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
@@ -50,4 +71,8 @@
 .price {
     font-size: 13px;
     color: #000;
+}
+
+a {
+	text-decoration: none;
 }

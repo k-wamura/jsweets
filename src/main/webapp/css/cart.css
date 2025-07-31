@@ -191,7 +191,8 @@ body {
 /* ボタン */
 .checkout-btn {
     display: block;
-    width: 100%;
+    width:50%;
+    margin: 0 auto;
     background-color: orange;
     color: white;
     text-align: center;

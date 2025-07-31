@@ -7,10 +7,12 @@
     <title>商品一覧</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/products.css">
+	<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
 </head>
 <body class="with-header">
     <jsp:include page="header.jsp"></jsp:include>
 
+	<h1>商品一覧 / Product List</h1>
     <div class="product-grid">
         <c:forEach var="product" items="${products}">
             <div class="product-card">

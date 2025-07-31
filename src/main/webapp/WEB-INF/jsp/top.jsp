@@ -51,18 +51,53 @@
             <form action="#">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <input type="text" name="" required>
-                    <label>Username</label>
+                    <input type="text" name="lName" required>
+                    <label>LastName</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" name="" required>
-                    <label>Email</label>
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="fName" required>
+                    <label>FirstName</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="lNameKana" required>
+                    <label>LastNameKana</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="fNameKana" required>
+                    <label>FirstNameKana</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" name="" required>
+                    <input type="password" name="password" required>
                     <label>Password</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="prefecture" required>
+                    <label>Prefecture</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="city" required>
+                    <label>City</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="oAddress" required>
+                    <label>OtherAddress</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="tel" required>
+                    <label>Tell </label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" name="email" required>
+                    <label>Email</label>
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox" name="">I agree to the terms & condisions</label>
