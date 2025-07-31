@@ -13,6 +13,7 @@ public class Product {
 	private int price;
 	private int stock;
 	private String imagePath;
+	private int quantity;
 	
 	public Product(int id, String name, String description, int price, int stock, String imagePath) {
 		super();
@@ -79,6 +80,14 @@ public class Product {
 
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	@Override

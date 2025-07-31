@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter("/buy")
+@WebFilter(urlPatterns = {"/buy", "/mypage/*"})
 public class LoginFilter extends HttpFilter {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginFilter.class);
@@ -44,7 +44,7 @@ public class LoginFilter extends HttpFilter {
 			logger.debug("戻り先URL：{}", url);
 			
 			//ログインページへ
-			response.sendRedirect("login");
+			response.sendRedirect(request.getContextPath() + "/login");
 		}
 	}
 

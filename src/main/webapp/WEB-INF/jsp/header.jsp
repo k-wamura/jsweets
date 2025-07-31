@@ -2,14 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header>
-	<h2 class="logo">Logo</h2>
+	<a href="${pageContext.request.contextPath}/top">
+		<img alt="和菓子" src="${pageContext.request.contextPath}/images/logo.jpg">
+	</a>
 	<nav class="navigation">
-		<a href="top">Home</a> <a href="#">About</a> <a href="productList">Products</a>
-		<a href="#">Contact</a> <a href="cart"><ion-icon
-				name="cart-outline"></ion-icon></a>
+		<a href="${pageContext.request.contextPath}/productList">Products</a>
+		<a href="#">About</a> 
+		<a href="#">Contact</a> 
+		<a href="${pageContext.request.contextPath}/cart"><ion-icon name="cart-outline"></ion-icon></a>
 		<c:choose>
 			<c:when test="${ not empty loginUser }">
-				<a href="#"><ion-icon name="person-outline"></ion-icon></a>
+				<a href="${pageContext.request.contextPath}/mypage"><ion-icon name="person-outline"></ion-icon></a>
 			</c:when>
 			<c:otherwise>
 				<button class="btnLogin-popup">Login</button>

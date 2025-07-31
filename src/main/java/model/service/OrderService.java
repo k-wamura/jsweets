@@ -2,6 +2,7 @@ package model.service;
 
 import java.sql.Connection;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -10,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import model.dao.OrderDao;
 import model.dao.ProductDao;
 import model.entity.CartItem;
+import model.entity.Order;
+import model.entity.Product;
 import model.entity.User;
 import util.DBUtil;
 
@@ -83,6 +86,29 @@ public class OrderService {
 			}
 		}
 	}
+	
+	
+	
+	/**
+	 * 渡された情報に対応する購入詳細情報を取得
+	 * 
+	 * @param orderId
+	 * @param userId
+	 * @return
+	 */
+	public Order findByOrderIdAndUserId(int orderId, int userId) {
+		
+		OrderDao orderDao = new OrderDao();
+		Order order = orderDao.findByOrderIdAndUserId(orderId, userId);
+		List<Product> orderDetailList = orderDao.findDeteilById(orderId, order);
+		
+		order.setOrderList(orderDetailList);
+		
+		return order;
+		
+	}
+	
+	
 	
 	public int calcTotalPrice(Collection<CartItem> cart) {
 		int total = 0;
