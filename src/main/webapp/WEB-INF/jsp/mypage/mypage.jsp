@@ -6,6 +6,27 @@
     <title>マイページ</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/mypage.css">
+    <script>
+		document.addEventListener("DOMContentLoaded", function () {
+	    const logoutLink = document.getElementById("logout-link");
+	    logoutLink.addEventListener("click", function (e) {
+	        e.preventDefault();
+	
+	        if (!confirm("ログアウトしてもよろしいですか？")) {
+	            return;
+	        }
+	
+	        // フォームを作成してPOST送信
+	        const form = document.createElement("form");
+	        form.method = "POST";
+	        form.action = logoutLink.getAttribute("href");
+	
+	        document.body.appendChild(form);
+	        form.submit();
+	    	});
+		});
+	</script>
+
 </head>
 <body class="with-header">
 	<jsp:include page="../header.jsp"></jsp:include>
@@ -37,6 +58,10 @@
             <a href="#" class="menu-item">
                 <ion-icon name="lock-closed-outline"></ion-icon>
                 <span>パスワード変更</span>
+            </a>
+            <a href="${pageContext.request.contextPath}/logout" class="menu-item" id="logout-link">
+                <ion-icon name="log-out-outline"></ion-icon>
+                <span>ログアウト</span>
             </a>
         </div>
     </div>
