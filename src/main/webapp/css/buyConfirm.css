@@ -1,5 +1,6 @@
 body {
-    background-image: url("../images/header.jpg");
+/*    background-image: url("../images/header.jpg");*/
+	background: #f5f1eb;
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -12,9 +13,9 @@ body {
 .container {
     max-width: 700px;
     margin: auto;
-    background: #fff;
+/*    background: #fff;*/
     padding: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/*    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);*/
     border-radius: 10px;
 }
 
@@ -23,7 +24,16 @@ h2 {
     text-align: center;
     color: #333;
     margin-top: 0;
+    margin-bottom: 20px;
 }
+
+/* 注文確認画面などで棒を非表示にしたい場合 */
+.step::before,
+.step::after {
+  display: none !important;
+  content: none !important;
+}
+
 
 /* ステップバー */
 /*.step-bar {*/
@@ -93,8 +103,8 @@ th, td {
 }
 
 th {
-    background-color: #f0f0f0;
-    font-weight: bold;
+/*    background-color: #f0f0f0;*/
+    font-weight: 500;
 }
 
 tr:hover {
@@ -124,7 +134,7 @@ tr:hover {
 .actions button {
     padding: 12px 24px;
     font-size: 16px;
-    background-color: orange;
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 5px;
@@ -133,5 +143,5 @@ tr:hover {
 }
 
 .actions button:hover {
-    background-color: darkorange;
+    background-color: #555;
 }

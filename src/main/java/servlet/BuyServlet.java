@@ -25,6 +25,13 @@ public class BuyServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		Object cart = session.getAttribute("cart");
+		if(cart == null) {
+			response.sendRedirect("cart");
+			return;
+		}
+		
 		request
 		.getRequestDispatcher("WEB-INF/jsp/buyConfirm.jsp")
 		.forward(request, response);
@@ -37,13 +44,16 @@ public class BuyServlet extends HttpServlet {
 		Map<Integer, CartItem> cart = (Map<Integer, CartItem>)session.getAttribute("cart");
 		
 		if(cart == null || cart.isEmpty()) {
-			response.sendRedirect("cart.jsp");
+			response.sendRedirect("cart");
 			return;
 		}
 		
+		int orderId = 0;
+		
 		try {
 			User loginUser = (User)session.getAttribute("loginUser");
-			new OrderService().purchase(loginUser, cart);
+			orderId = new OrderService().purchase(loginUser, cart);
+			request.setAttribute("orderId", orderId);
 			
 		}catch(IllegalStateException e) {
 			request.setAttribute("errorMsg", e.getMessage());

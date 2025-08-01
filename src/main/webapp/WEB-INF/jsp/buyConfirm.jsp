@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>購入確認</title>
-<link rel="stylesheet" href="css/buyConfirm.css">
-<link rel="stylesheet" href="css/stepbar.css">
 <link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/stepbar.css">
+<link rel="stylesheet" href="css/buyConfirm.css">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
 </head>
 <body class="with-header">
 	<jsp:include page="header.jsp"></jsp:include>
@@ -54,7 +55,7 @@
 		</table>
 
 		<p class="total">
-			合計金額：¥
+			合計金額：
 			<c:out value="${ totalPrice }" />
 			円
 		</p>

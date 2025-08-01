@@ -44,7 +44,7 @@ public class LoginFilter extends HttpFilter {
 			logger.debug("戻り先URL：{}", url);
 			
 			//ログインページへ
-			response.sendRedirect(request.getContextPath() + "/login");
+			response.sendRedirect(request.getContextPath() + "/top");
 		}
 	}
 

@@ -42,7 +42,7 @@ public class AdminFilter extends HttpFilter {
 			logger.debug("戻り先URL：{}", url);
 			
 			//ログインページへリダイレクト
-			response.sendRedirect(request.getContextPath() + "/login");
+			response.sendRedirect(request.getContextPath() + "/top");
 		}
 	}
 

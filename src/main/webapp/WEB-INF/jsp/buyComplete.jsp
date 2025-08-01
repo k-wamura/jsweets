@@ -9,9 +9,6 @@
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/stepbar.css">
 <link rel="stylesheet" href="css/buyComplete.css">
-<style>
-
-</style>
 </head>
 <body class="with-header">
 	<jsp:include page="header.jsp"></jsp:include>
@@ -45,7 +42,7 @@
 
 		<div class="order-number">
 			ご注文番号：
-			<c:out value="${orderNumber}" />
+			<c:out value="${orderId}" />
 		</div>
 
 		<a href="top" class="btn">トップページへ</a>

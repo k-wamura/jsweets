@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/stepbar.css">
 <link rel="stylesheet" href="css/cart.css">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
 </head>
 <body class="with-header">
 	<jsp:include page="header.jsp"></jsp:include>

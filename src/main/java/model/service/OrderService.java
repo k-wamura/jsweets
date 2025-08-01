@@ -32,11 +32,11 @@ public class OrderService {
 	 * @param cart
 	 * @throws Exception
 	 */
-	public void purchase(User user, Map<Integer, CartItem> cart) throws Exception {
+	public int purchase(User user, Map<Integer, CartItem> cart) throws Exception {
 		logger.info("購入処理開始：userId={}, 商品数={}", user.getId(), cart.size());
 		
 		Connection conn = null;
-		
+		int orderId= 0;
 		try{
 			conn = DBUtil.getConnection();
 			conn.setAutoCommit(false);
@@ -48,7 +48,7 @@ public class OrderService {
 			int totalPrice = calcTotalPrice(cart.values());
 			
 			//注文情報の登録
-			int orderId = orderDao.insertOrder(conn, user.getId(), totalPrice);
+			orderId = orderDao.insertOrder(conn, user.getId(), totalPrice);
 			
 			for(CartItem item : cart.values()) {
 				//注文詳細情報の登録
@@ -85,6 +85,8 @@ public class OrderService {
 				conn.close();				
 			}
 		}
+		
+		return orderId;
 	}
 	
 	

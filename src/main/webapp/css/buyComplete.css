@@ -1,14 +1,22 @@
 body {
-	background-color: #f9f6f1;
+/*	background-color: #f9f6f1;*/
+	background-image: none;
+	background: #f5f1eb;
 	font-family: 'Yu Gothic', sans-serif;
 	margin: 0;
 	padding: 40px 0;
+}
+/* 注文確認画面などで棒を非表示にしたい場合 */
+.step::before,
+.step::after {
+  display: none !important;
+  content: none !important;
 }
 
 .container {
 	max-width: 700px;
 	margin: 0 auto 40px;
-	background-color: #fff;
+/*	background-color: #fff;*/
 	padding: 30px;
 	border-radius: 10px;	
 }

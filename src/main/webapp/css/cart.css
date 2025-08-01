@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
-    background-image: url("../images/header.jpg");
+/*    background-image: url("../images/header.jpg");*/
+	background: #f5f1eb;
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -76,7 +77,7 @@ body {
 .cart-container {
     max-width: 700px;
     margin: 0 auto 40px;
-    background-color: #fff;
+    background-color: #f5f1eb;
     padding: 30px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -105,7 +106,7 @@ body {
 .cart-item img {
     width: 100px;
     height: auto;
-    margin-right: 15px;
+    margin-right: 25px;
     border-radius: 5px;
 }
 
@@ -118,7 +119,7 @@ body {
 }
 
 .item-name {
-    font-weight: bold;
+/*    font-weight: bold;*/
     margin-bottom: 10px;
     word-break: break-word;
 }
@@ -138,7 +139,7 @@ body {
 
 .item-price {
     font-size: 20px;
-    font-weight: bold;
+/*    font-weight: bold;*/
     color: #333;
 }
 
@@ -179,9 +180,9 @@ body {
 }
 
 .total {
-    background: #f0f0f0;
+/*    background: #f0f0f0;*/
     padding: 10px;
-    font-weight: bold;
+/*    font-weight: bold;*/
     font-size: 22px;
     display: flex;
     justify-content: space-between;
@@ -193,7 +194,7 @@ body {
     display: block;
     width:50%;
     margin: 0 auto;
-    background-color: orange;
+    background-color: #333;
     color: white;
     text-align: center;
     padding: 15px;
@@ -207,7 +208,7 @@ body {
 }
 
 .checkout-btn:hover {
-    background-color: #e69500;
+    background-color: #555;
 }
 
 .empty-msg {
