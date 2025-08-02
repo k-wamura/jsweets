@@ -137,7 +137,10 @@ body {
 
 .wrapper .form-box {
     width: 100%;
+    max-width: 400px;
     padding: 40px;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .wrapper .form-box.login {
@@ -298,3 +301,32 @@ input:-webkit-autofill {
 .login-register p a:hover {
     text-decoration: underline;
 }
+
+/*.wrapper .form-box.login {*/
+/*    background-color: rgba(0, 255, 0, 0.05);*/
+/*}*/
+/*.wrapper .form-box.register {*/
+/*    background-color: rgba(255, 0, 0, 0.05);*/
+/*}*/
+
+.input-box input {
+    width: 100%;
+    padding: 0 40px 0 10px;
+    box-sizing: border-box;
+}
+
+.input-box .icon {
+    right: 10px;
+}
+
+.input-pair {
+    display: flex;
+    gap: 20px;  入力欄の間隔を調整 
+    justify-content: space-between;
+}
+
+.input-pair .input-box {
+    flex: 1;
+    margin-bottom: 0;
+}
+

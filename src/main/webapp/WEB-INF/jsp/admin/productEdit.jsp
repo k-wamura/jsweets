@@ -11,6 +11,9 @@
 <body>
 	<div class="admin-container">
 		<h1>商品編集</h1>
+		<c:if test="${ not empty errorMsg }">
+			<p style="color: red">${ errorMsg }</p>
+		</c:if>
 
 		<form action="productEdit" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="productId" value="${product.id}" /> 

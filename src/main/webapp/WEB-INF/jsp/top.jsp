@@ -49,61 +49,62 @@
 	
 	        <div class="form-box register">
 	            <h2>Registration</h2>
-	            <form action="#">
+	            <c:if test="${ not empty errors }">
+	            	<c:forEach var="msg" items="${ errors }">
+	            		<p style="color: red">${ msg }</p>
+	            	</c:forEach>
+	            </c:if>
+	            <form action="register" method="post">
+	                <div class="input-pair">
+					    <div class="input-box">
+					        <input type="text" name="lName" required>
+					        <label>姓</label>
+					    </div>
+					    <div class="input-box">
+					        <input type="text" name="fName" required>
+					        <label>名</label>
+					    </div>
+					</div>
+					
+					<div class="input-pair">
+					    <div class="input-box">
+					        <input type="text" name="lNameKana" required>
+					        <label>セイ</label>
+					    </div>
+					    <div class="input-box">
+					        <input type="text" name="fNameKana" required>
+					        <label>メイ</label>
+					    </div>
+					</div>
+
 	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="person"></ion-icon></span>
-	                    <input type="text" name="lName" required>
-	                    <label>LastName</label>
-	                </div>
-	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="person"></ion-icon></span>
-	                    <input type="text" name="fName" required>
-	                    <label>FirstName</label>
-	                </div>
-	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="person"></ion-icon></span>
-	                    <input type="text" name="lNameKana" required>
-	                    <label>LastNameKana</label>
-	                </div>
-	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="person"></ion-icon></span>
-	                    <input type="text" name="fNameKana" required>
-	                    <label>FirstNameKana</label>
-	                </div>
-	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
 	                    <input type="password" name="password" required>
-	                    <label>Password</label>
+	                    <label>パスワード</label>
 	                </div>
 	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="person"></ion-icon></span>
 	                    <input type="text" name="prefecture" required>
-	                    <label>Prefecture</label>
+	                    <label>都道府県</label>
 	                </div>
 	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="person"></ion-icon></span>
 	                    <input type="text" name="city" required>
-	                    <label>City</label>
+	                    <label>市区町村</label>
 	                </div>
 	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="person"></ion-icon></span>
 	                    <input type="text" name="oAddress" required>
-	                    <label>OtherAddress</label>
+	                    <label>その他住所</label>
 	                </div>
 	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="person"></ion-icon></span>
 	                    <input type="text" name="tel" required>
-	                    <label>Tell </label>
+	                    <label>電話番号</label>
 	                </div>
 	                <div class="input-box">
-	                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
 	                    <input type="email" name="email" required>
-	                    <label>Email</label>
+	                    <label>メールアドレス</label>
 	                </div>
 	                <div class="remember-forgot">
 	                    <label><input type="checkbox" name="">I agree to the terms & condisions</label>
 	                </div>
-	                <button type="submit" class="btn">Register</button>
+	                <button type="submit" class="btn" onclick="alert('新規登録しますか？')">Register</button>
 	                
 	                <div class="login-register">
 	                    <p>Already have an account?<a href="#" class="login-link">Login</a></p>

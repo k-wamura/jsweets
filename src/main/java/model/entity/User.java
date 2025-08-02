@@ -35,6 +35,24 @@ public class User {
 		this.createdAt = createdAt;
 		this.role = role;
 	}
+	
+
+	public User(String lName, String fName, String lNameKana, String fNameKana, String password, String prefecture,
+			String city, String oAddress, String tel, String email) {
+		super();
+		this.lName = lName;
+		this.fName = fName;
+		this.lNameKana = lNameKana;
+		this.fNameKana = fNameKana;
+		this.password = password;
+		this.prefecture = prefecture;
+		this.city = city;
+		this.oAddress = oAddress;
+		this.tel = tel;
+		this.email = email;
+	}
+
+
 
 	public int getRole() {
 		return role;
