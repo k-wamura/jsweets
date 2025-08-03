@@ -14,6 +14,8 @@ public class Product {
 	private int stock;
 	private String imagePath;
 	private int quantity;
+	private int status;
+	
 	
 	public Product(int id, String name, String description, int price, int stock, String imagePath) {
 		super();
@@ -94,6 +96,14 @@ public class Product {
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + ", stock="
 				+ stock + ", imagePath=" + imagePath + "]";
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 }

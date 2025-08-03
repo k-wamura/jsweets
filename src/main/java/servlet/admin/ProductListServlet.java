@@ -28,6 +28,13 @@ public class ProductListServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int productId = Integer.parseInt(request.getParameter("id"));
+		int action = Integer.parseInt(request.getParameter("action"));
+		
+		//公開状態の更新
+		new ProductDao().updateStatus(productId, action);
+		
+		response.sendRedirect(request.getContextPath() + "/admin/productList");
 	}
 
 }

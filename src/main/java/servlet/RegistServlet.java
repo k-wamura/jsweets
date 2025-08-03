@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.dao.UserDao;
 import model.entity.User;
-import util.RegistValidator;
+import util.Validator;
 
 /**
  * Servlet implementation class RegistServlet
@@ -33,7 +33,7 @@ public class RegistServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		
 		User user = new User(lName, fName, lNameKana, fNameKana, password, prefecture, city, oAddress, tel, email);
-		List<String> errors = RegistValidator.validate(user);
+		List<String> errors = Validator.registValidate(user);
 		
 		// エラーがあるかどうかの判定
 		if (!errors.isEmpty()) {

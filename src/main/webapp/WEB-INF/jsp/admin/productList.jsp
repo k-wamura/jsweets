@@ -31,14 +31,29 @@
             <td><c:out value="${product.stock}" /></td>
             <td>
               <a href="productEdit?id=${product.id}" class="btn-small">編集</a>
-              <a href="productDelete?id=${product.id}" class="btn-small btn-danger" onclick="return confirm('本当に削除しますか？')">削除</a>
+              <c:if test="${ product.status == 1 }">
+			    <form method="post" action="productList" style="display:inline;" onsubmit="return confirm('本当に出品停止しますか？')">
+			        <input type="hidden" name="id" value="${product.id}" />
+			        <input type="hidden" name="action" value="2" />
+			        <button type="submit" class="btn-small btn-stop">停止</button>
+			    </form>
+			  </c:if>
+			
+			<c:if test="${ product.status == 2 }">
+			    <form method="post" action="productList" style="display:inline;" onsubmit="return confirm('本当に出品開始しますか？')">
+			        <input type="hidden" name="id" value="${product.id}" />
+			        <input type="hidden" name="action" value="1" />
+			        <button type="submit" class="btn-small btn-start">公開</button>
+			    </form>
+			</c:if>
+
             </td>
           </tr>
         </c:forEach>
       </tbody>
     </table>
 
-    <p><a href="dashboard">← 管理メニューに戻る</a></p>
+    <p><a href="${pageContext.request.contextPath}/mypage">← 管理メニューに戻る</a></p>
   </div>
 </body>
 </html>

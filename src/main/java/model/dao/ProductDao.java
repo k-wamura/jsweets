@@ -44,6 +44,42 @@ public class ProductDao {
 							rs.getInt("stock"),
 							rs.getString("image_path")
 							);
+					product.setStatus(rs.getInt("status"));
+					
+					products.add(product);
+				}
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return products;
+	}
+	
+	
+	/**
+	 * 全ての商品情報を取得
+	 * 
+	 * @return 全ての商品情報をリストで返す
+	 */
+	private final String SQL_SELECT_ACTIVE = "SELECT * FROM product WHERE status = 1";
+	public List<Product> findActive(){
+		List<Product> products = new ArrayList<>();
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(SQL_SELECT_ACTIVE)){
+			
+			try(ResultSet rs = pstmt.executeQuery()){
+				while(rs.next()) {
+					Product product = new Product(
+							rs.getInt("id"),
+							rs.getString("name"),
+							rs.getString("description"),
+							rs.getInt("price"),
+							rs.getInt("stock"),
+							rs.getString("image_path")
+							);
 					
 					products.add(product);
 				}
@@ -142,8 +178,8 @@ public class ProductDao {
 	 * 
 	 * @param product 新しい商品情報
 	 */
-	private final String SQL_ADD = "INSERT INTO product(name, price, stock, description, image_path)"
-									+ "VALUES (?, ?, ?, ?, ?)";
+	private final String SQL_ADD = "INSERT INTO product(name, price, stock, description, image_path, status)"
+									+ "VALUES (?, ?, ?, ?, ?, default)";
 	public void addProduct(Product product) throws Exception {
 		try (Connection conn = DBUtil.getConnection();
 		         PreparedStatement pstmt = conn.prepareStatement(SQL_ADD)) {
@@ -167,5 +203,23 @@ public class ProductDao {
 	}
 	
 	
-	
+	private final String SQL_UPDATE_STATUS = "UPDATE product SET status = ? WHERE id = ?";
+	/**
+	 * 渡された情報を使用し、商品の公開状態を変更します
+	 * 
+	 * @param productId
+	 * @param status
+	 */
+	public void updateStatus(int productId, int status) {
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(SQL_UPDATE_STATUS)){
+			
+			pstmt.setInt(1, status);
+			pstmt.setInt(2, productId);
+			pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

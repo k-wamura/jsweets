@@ -84,12 +84,22 @@ h1 {
     border-radius: 3px;
 }
 
-.btn-danger {
+.btn-stop {
     background-color: #d9534f;
+    border: none;
 }
 
-.btn-danger:hover {
+.btn-stop:hover {
     background-color: #c9302c;
+}
+
+.btn-start {
+    background-color: rgb(0, 196, 196);
+    border: none;
+}
+
+.btn-start:hover {
+    background-color: rgb(0, 128, 192);
 }
 
 .form-group {

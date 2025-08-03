@@ -3,11 +3,18 @@ package util;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.entity.Contact;
 import model.entity.User;
 
-public class RegistValidator {
-
-	public static List<String> validate(User user){
+public class Validator {
+	
+	/**
+	 * 新規登録の入力値チェック
+	 * 
+	 * @param user
+	 * @return
+	 */
+	public static List<String> registValidate(User user){
 		List<String> errors = new ArrayList<>();
 		String lName = user.getlName();
 		String fName = user.getfName();
@@ -72,6 +79,37 @@ public class RegistValidator {
 		    errors.add("メールアドレスを入力してください。");
 		} else if (!email.matches("^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$")) {
 		    errors.add("メールアドレスの形式が正しくありません。");
+		}
+		
+		return errors;
+	}
+	
+	
+	public static List<String> contactValidate(Contact contact){
+		List<String> errors = new ArrayList<>();
+		
+		int item = contact.getContactItem();
+        String name = contact.getName();
+        String prefecture = contact.getPrefecture();
+        String mail = contact.getMail();
+        String message = contact.getMessage();
+
+		if (item == 0) {
+		    errors.add("お問い合わせ内容を選択してください。");
+		}
+		if (name == null || name.trim().isEmpty()) {
+		    errors.add("お名前を入力してください。");
+		}
+		if (prefecture == null || prefecture.trim().isEmpty()) {
+		    errors.add("都道府県を選択してください。");
+		}
+		if (mail == null || mail.trim().isEmpty()) {
+		    errors.add("メールアドレスを入力してください。");
+		} else if (!mail.matches("^[\\w\\.-]+@[\\w\\.-]+\\.[a-zA-Z]{2,}$")) {
+		    errors.add("正しいメールアドレスの形式で入力してください。");
+		}
+		if (message == null || message.trim().isEmpty()) {
+		    errors.add("お問い合わせ内容を入力してください。");
 		}
 		
 		return errors;

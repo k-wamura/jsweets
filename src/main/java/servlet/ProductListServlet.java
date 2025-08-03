@@ -20,7 +20,7 @@ public class ProductListServlet extends HttpServlet {
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//全商品情報を取得
-		List<Product> products = new ProductDao().findAll();
+		List<Product> products = new ProductDao().findActive();
 		
 		//リクエストスコープに保存
 		request.setCharacterEncoding("UTF-8");
