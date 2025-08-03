@@ -8,7 +8,7 @@
 	<nav class="navigation">
 		<a href="${pageContext.request.contextPath}/productList">Products</a>
 		<a href="#">About</a> 
-		<a href="#">Contact</a> 
+		<a href="${pageContext.request.contextPath}/contact">Contact</a> 
 		<a href="${pageContext.request.contextPath}/cart"><ion-icon name="cart-outline"></ion-icon></a>
 		<c:choose>
 			<c:when test="${ not empty loginUser }">
