@@ -77,6 +77,10 @@
                 <ion-icon name="notifications-outline"></ion-icon>
                 <span>注文管理</span>
             </a>
+            <a href="#" class="menu-item">
+                <ion-icon name="mail-outline"></ion-icon>
+                <span>お問い合わせ管理</span>
+            </a>
         </c:if>
         
             <a href="logout" class="menu-item" id="logout-link">
